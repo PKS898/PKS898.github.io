@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Подорожная Екатерина Сергеевна — исследовательское портфолио</title>
+
+  <meta
+    name="description"
+    content="Академическое портфолио аспиранта: математическое моделирование, машинное обучение, нейронные операторы, речевые технологии, публикации, проекты, преподавание и контакты."
+  />
+
+  <meta
+    name="keywords"
+    content="Подорожная Екатерина, исследовательское портфолио, аспирант, СВФУ, математическое моделирование, машинное обучение, искусственный интеллект, neural operators, нейронные операторы, FNO, FFNO, SNO, Fourier Neural Operator, Factorized Fourier Neural Operator, Spectral Neural Operator, Scientific Machine Learning, SciML, PDE, численные методы, Speech-to-Text, якутский язык, low-resource languages, компьютерное зрение"
+  />
+
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #182033;
+      --muted: #667085;
+      --accent: #4f46e5;
+      --accent-soft: #eef2ff;
+      --border: #e5e7eb;
+      --dark: #111827;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 20px 70px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 18px;
+      margin-bottom: 36px;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), #06b6d4);
+      border-radius: 12px;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    nav a {
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    nav a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 28px;
+    }
+
+    .hero-main,
+    .hero-card,
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 44px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -90px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.17), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      margin-bottom: 22px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 19px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions,
+    .socials,
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .button.secondary {
+      border-color: var(--border);
+      background: #fff;
+      color: var(--text);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+    }
+
+    .hero-card {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .profile-photo {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #f3f4f6;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.10);
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .info-list strong {
+      color: var(--text);
+    }
+
+    .socials a,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+
+    .section {
+      padding: 32px;
+      margin-top: 20px;
+    }
+
+    .span-12 { grid-column: span 12; }
+    .span-8 { grid-column: span 8; }
+    .span-7 { grid-column: span 7; }
+    .span-6 { grid-column: span 6; }
+    .span-5 { grid-column: span 5; }
+    .span-4 { grid-column: span 4; }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      font-size: 19px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini-card,
+    .timeline-item,
+    .publication,
+    .project-card {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #fff;
+    }
+
+    .mini-card p,
+    .project-card p,
+    .publication p,
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+    }
+
+    .year {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .pub-list,
+    .project-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .publication-title,
+    .project-title {
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .project-card {
+      display: grid;
+      gap: 10px;
+    }
+
+    .status {
+      width: fit-content;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .two-column-list {
+      columns: 2;
+      column-gap: 28px;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .two-column-list li {
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+
+    .highlight {
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #eef2ff, #ecfeff);
+      border: 1px solid #dbeafe;
+    }
+
+    .highlight ul {
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .highlight li {
+      margin-bottom: 8px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .contact-box .muted {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+        border-radius: 24px;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main {
+        padding: 32px;
+      }
+
+      .span-8,
+      .span-7,
+      .span-6,
+      .span-5,
+      .span-4 {
+        grid-column: span 12;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .two-column-list {
+        columns: 1;
+      }
+
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="На главную">
+        <span class="brand-mark">EP</span>
+        <span>Екатерина Подорожная</span>
+      </a>
+
+      <nav aria-label="Основная навигация">
+        <a href="#about">Обо мне</a>
+        <a href="#research">Исследования</a>
+        <a href="#publications">Публикации</a>
+        <a href="#projects">Проекты</a>
+        <a href="#teaching">Преподавание</a>
+        <a href="#collaboration">Сотрудничество</a>
+        <a href="#cv">CV</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Главный экран">
+        <div class="hero-main">
+          <div class="eyebrow">Академическое портфолио · Research Portfolio</div>
+
+          <h1>Подорожная Екатерина Сергеевна</h1>
+
+          <p class="lead">
+            Аспирант СВФУ ИМИ по направлению «Математическое моделирование, численные методы и комплексы программ». Работаю на пересечении математического моделирования, искусственного интеллекта, обработки речи и прикладных ML-проектов. Интересуюсь Scientific Machine Learning, нейронными операторами, включая FNO, FFNO и SNO, а также гибридными методами для задач на основе дифференциальных уравнений.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#research">Исследовательские интересы</a>
+            <a class="button secondary" href="#publications">Публикации</a>
+            <a class="button secondary" href="mailto:ekpodor@gmail.com">Написать на email</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Краткая информация">
+          <div class="profile-photo">
+            <img src="assets/img/photo.jpg" alt="Подорожная Екатерина Сергеевна" />
+          </div>
+
+          <div class="info-list">
+            <p><strong>Статус:</strong> аспирант, преподаватель, исследователь</p>
+            <p><strong>Аффилиация:</strong> СВФУ, Институт математики и информатики</p>
+            <p><strong>Фокус:</strong> AI, ML, neural operators, speech technologies, mathematical modeling</p>
+            <p><strong>Email:</strong> <a href="mailto:ekpodor@gmail.com">ekpodor@gmail.com</a></p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">SciML</span>
+            <span class="tag">Neural Operators</span>
+            <span class="tag">FNO</span>
+            <span class="tag">FFNO</span>
+            <span class="tag">SNO</span>
+            <span class="tag">PDE</span>
+            <span class="tag">Speech-to-Text</span>
+          </div>
+
+          <div class="socials">
+            <a href="#" aria-label="GitHub">GitHub</a>
+            <a href="#" aria-label="ORCID">ORCID</a>
+            <a href="#" aria-label="Google Scholar">Scholar</a>
+            <a href="#" aria-label="eLibrary">eLibrary</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">About</div>
+            <h2>Обо мне</h2>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="span-7">
+            <p>
+              Я занимаюсь исследовательскими и прикладными проектами в области искусственного интеллекта, машинного обучения, компьютерного зрения и речевых технологий. Мой академический путь связан с прикладной математикой, технологиями искусственного интеллекта и математическим моделированием.
+            </p>
+
+            <p class="muted" style="margin-top: 14px;">
+              В исследовательской работе мне интересны задачи, где классические математические методы и современные data-driven подходы могут дополнять друг друга: от обработки речи и low-resource languages до ML-моделей для прикладных задач и научных вычислений. Ключевое направление — разработка гибридных методов с применением математического моделирования и машинного обучения.
+            </p>
+          </div>
+
+          <div class="span-5">
+            <div class="highlight">
+              <h3>Позиционирование</h3>
+              <p class="muted">
+                Исследователь и аспирант в области математического моделирования и искусственного интеллекта. Основной интерес — разработка и применение ML/AI-подходов для реальных научных и прикладных задач.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Research</div>
+            <h2>Исследовательские интересы</h2>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="mini-card">
+            <h3>Математическое моделирование и численные методы</h3>
+            <p>
+              Исследование вычислительных подходов, моделей и программных комплексов для решения прикладных задач, включая задачи на основе дифференциальных уравнений и гибридные model-based/data-driven методы.
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Нейронные операторы и Scientific Machine Learning</h3>
+            <p>
+              Интересуюсь нейронными операторами и их применением для аппроксимации решений задач, связанных с дифференциальными уравнениями. В фокусе — FNO, FFNO, SNO и другие архитектуры для operator learning.
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Искусственный интеллект и машинное обучение</h3>
+            <p>
+              Разработка, обучение и применение моделей машинного обучения для анализа данных, компьютерного зрения, обработки речи и прикладных исследовательских задач.
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Speech-to-Text и low-resource languages</h3>
+            <p>
+              Распознавание речи для малоресурсных языков, включая задачи преобразования якутской речи в текст и развитие речевых технологий.
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Компьютерное зрение</h3>
+            <p>
+              Опыт проектной работы с YOLO, ResNet и задачами обнаружения, сегментации и прикладной аналитики изображений.
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Гибридные методы</h3>
+            <p>
+              Интерес к подходам, объединяющим математические модели, численные методы и машинное обучение для повышения точности и гибкости вычислительных решений.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="education" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Education</div>
+            <h2>Образование</h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="year">2025 — н.в.</div>
+            <div>
+              <h3>Аспирантура, СВФУ ИМИ</h3>
+              <p>Направление 1.2.2 «Математическое моделирование, численные методы и комплексы программ».</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="year">2023 — 2025</div>
+            <div>
+              <h3>Магистратура, СВФУ ИМИ</h3>
+              <p>Направление «Перспективные методы искусственного интеллекта».</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="year">2024 — 2025</div>
+            <div>
+              <h3>Академическая мобильность, ЕНУ им. Л.Н. Гумилева</h3>
+              <p>Астана, Республика Казахстан. Направление «Технологии искусственного интеллекта».</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="year">2019 — 2023</div>
+            <div>
+              <h3>Бакалавриат, СВФУ ИМИ</h3>
+              <p>Направление «Прикладная математика и информатика».</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Publications</div>
+            <h2>Публикации</h2>
+          </div>
+        </div>
+
+        <div class="pub-list">
+          <article class="publication">
+            <div class="publication-title">Estimating Stray Dog Population Using Computer Vision</div>
+            <div class="meta">НИЦ «Вестник науки», 6 мая 2024</div>
+            <p>
+              Публикация по применению компьютерного зрения для оценки численности безнадзорных собак.
+            </p>
+          </article>
+
+          <article class="publication">
+            <div class="publication-title">Метод распознавания речи для малоресурсных языков</div>
+            <div class="meta">5–6 марта 2025</div>
+            <p>
+              Работа по направлению speech recognition для языков с ограниченным количеством доступных данных.
+            </p>
+          </article>
+
+          <article class="publication">
+            <div class="publication-title">Распознавание якутского языка</div>
+            <div class="meta">Апрель 2025</div>
+            <p>
+              Материал, связанный с задачей распознавания якутской речи и развитием речевых технологий для якутского языка.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Projects</div>
+            <h2>Проекты</h2>
+          </div>
+        </div>
+
+        <div class="project-list">
+          <article class="project-card">
+            <span class="status">AI Lab · grant support</span>
+            <h3 class="project-title">Системы преобразования якутской речи в текст и синтезатор речи</h3>
+            <p>
+              Участие в разработке голосового помощника и обучении модели Speech-to-Text. Проект реализуется при финансовой поддержке Лаборатории искусственного интеллекта РС(Я) (№ 060125 — «Программная реализация систем преобразования якутской речи в текст и синтезатор речи»).
+            </p>
+          </article>
+
+          <article class="project-card">
+            <span class="status">Computer Vision</span>
+            <h3 class="project-title">Прогнозирование численности собак на основе YOLO и интерполирования</h3>
+            <p>
+              Курирование проекта в студенческой проектно-образовательной лаборатории Spark Lab. Работа была связана с компьютерным зрением и оценкой численности объектов на изображениях.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <span class="status">Medical AI</span>
+            <h3 class="project-title">Сегментация КТ-исследований</h3>
+            <p>
+              Участие в медицинском стартапе Sciberia, связанном с компьютерным зрением и сегментированием КТ-изображений с использованием нейросетевых подходов.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="teaching" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Teaching</div>
+            <h2>Преподавание и наставничество</h2>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="span-6">
+            <article class="mini-card">
+              <h3>Преподаватель, НПОУ «ЯКИТ»</h3>
+              <p>
+                Дисциплины: «Внедрение и поддержка компьютерных систем», «Основы алгоритмизации и программирования», «Основы нейронных сетей».
+              </p>
+            </article>
+          </div>
+
+          <div class="span-6">
+            <article class="mini-card">
+              <h3>Научное наставничество для студентов СПО</h3>
+              <p>
+                Под моим руководством более 15 студентов завершили проектную подготовку; около 80% успешно трудоустроились по своему направлению.
+              </p>
+            </article>
+          </div>
+
+          <div class="span-6">
+            <article class="mini-card">
+              <h3>Помощник преподавателя, СВФУ ИМИ</h3>
+              <p>
+                Дисциплины: «Семинар по машинному обучению», «Глубинное обучение».
+              </p>
+            </article>
+          </div>
+
+          <div class="span-6">
+            <article class="mini-card">
+              <h3>Экспертная деятельность</h3>
+              <p>
+                Опыт участия в конкурсах и проектных мероприятиях в роли эксперта по менеджменту и компьютерному зрению.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="achievements" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Achievements</div>
+            <h2>Достижения</h2>
+          </div>
+        </div>
+
+        <ul class="two-column-list">
+          <li>Победитель хакатона Hack-the-ice 7.0, 2025.</li>
+          <li>Номинация «Лучший менеджер» Hack-the-ice 7.0, 2025.</li>
+          <li>Диплом 1 степени на конференции «СИТИМ-2025».</li>
+          <li>Диплом 3 степени на конференции «Аммосов-2025».</li>
+          <li>Победитель международного хакатона «Зеленый код Москвы», 2024.</li>
+          <li>Диплом 1 степени в номинации «Лучшая научная статья», 2024.</li>
+          <li>Призер хакатона Hack-the-ice 5.0, 2023.</li>
+          <li>Победитель X республиканской выставки Sakha Innovation, 2022.</li>
+          <li>Призер конкурса «Моя профессия — ИТ» в категории B, 2022.</li>
+          <li>Победитель хакатона Hack-the-ice 3.0, 2021.</li>
+        </ul>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Skills</div>
+            <h2>Навыки и инструменты</h2>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="mini-card">
+            <h3>Programming</h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">C#</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">GitLab</span>
+              <span class="tag">Docker</span>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <h3>AI / ML</h3>
+            <div class="tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Speech-to-Text</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">YOLO</span>
+              <span class="tag">Neural Operators</span>
+              <span class="tag">FNO</span>
+              <span class="tag">FFNO</span>
+              <span class="tag">SNO</span>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <h3>Scientific Computing</h3>
+            <div class="tags">
+              <span class="tag">PDE</span>
+              <span class="tag">Numerical Methods</span>
+              <span class="tag">Mathematical Modeling</span>
+              <span class="tag">SciML</span>
+              <span class="tag">Operator Learning</span>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <h3>Design & Product</h3>
+            <div class="tags">
+              <span class="tag">Figma</span>
+              <span class="tag">FigJam</span>
+              <span class="tag">Asana</span>
+              <span class="tag">AmoCRM</span>
+              <span class="tag">Project Management</span>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <h3>Soft Skills</h3>
+            <div class="tags">
+              <span class="tag">Планирование</span>
+              <span class="tag">Команда</span>
+              <span class="tag">Коммуникация</span>
+              <span class="tag">Наставничество</span>
+              <span class="tag">Саморазвитие</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="collaboration" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Collaboration</div>
+            <h2>Открыта к научному сотрудничеству</h2>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="span-7">
+            <p>
+              Открыта к совместным исследованиям, разработкам и публикациям в области математического моделирования, Scientific Machine Learning, нейронных операторов, численных методов, обработки речи и AI/ML-проектов.
+            </p>
+
+            <p class="muted" style="margin-top: 14px;">
+              Особенно интересны темы, связанные с operator learning и surrogate modeling для задач на основе дифференциальных уравнений, а также применением машинного обучения для малоресурсных языков.
+            </p>
+          </div>
+
+          <div class="span-5">
+            <div class="highlight">
+              <h3>Возможные форматы</h3>
+              <ul>
+                <li>совместная статья или обзор литературы;</li>
+                <li>вычислительные эксперименты;</li>
+                <li>реализация моделей на Python, PyTorch или JAX;</li>
+                <li>подготовка доклада или конференционной работы;</li>
+                <li>совместная разработка AI/ML-прототипов;</li>
+                <li>проектная работа со студентами.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cv" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">CV</div>
+            <h2>Академическое CV</h2>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="span-8">
+            <p>
+              CV можно вынести в отдельный PDF-файл на русском и английском языках.
+            </p>
+          </div>
+
+          <div class="span-4">
+            <a class="button primary" href="#">Скачать CV PDF</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" class="section">
+        <div class="contact-box">
+          <div>
+            <div class="section-kicker">Contacts</div>
+            <h2>Контакты</h2>
+            <p class="muted">Для научного сотрудничества, проектов и академических коммуникаций.</p>
+          </div>
+
+          <a class="button secondary" href="mailto:ekpodor@gmail.com">ekpodor@gmail.com</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 Подорожная Екатерина Сергеевна · Research Portfolio
+    </footer>
+  </div>
+</body>
+</html>
